@@ -17,6 +17,9 @@
         <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% if current_user == tweet.user %>
+      <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
+    <% end %>
   </tbody>
 </table>
 

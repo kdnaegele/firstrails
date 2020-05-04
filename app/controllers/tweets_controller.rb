@@ -36,10 +36,8 @@ def destroy
 
   end
 
-Inside tweet body
-#<% if current_user == tweet.user %>
-#<%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
-#<% end >
+#Inside tweet body
+
 
 private
 def tweet_params
