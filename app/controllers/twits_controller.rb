@@ -1,4 +1,11 @@
 class TwitsController < ApplicationController
+  # before any blog action happens, it will authenticate the user
+
+  before_action :authenticate_user!
+
+  def index
+    @twits = Twit.all
+  end
 end
 
 def index
@@ -19,6 +26,23 @@ def create
   end
 end
 
+def destroy
+
+    @tweet = Tweet.find(params[:id])
+
+    @tweet.destroy
+
+    redirect_to '/', :notice => "Your tweet has been deleted"
+
+  end
+
+Inside tweet body
+
+      <% if current_user == tweet.user %>
+
+        <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
+
+      <% end %>
 private
 def twit_params
   params.require(:twit).permit(:body)

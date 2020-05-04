@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @twits.each do |twit| %>
+    <% @tweets.reverse.each do |twit| %>
       <tr>
         <td><%= link_to 'Show', twit %></td>
         <td><%= link_to 'Edit', edit_twit_path(twit) %></td>
